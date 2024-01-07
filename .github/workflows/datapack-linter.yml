@@ -1,0 +1,19 @@
+name: lint-datapack
+on:
+    push:
+    pull_request:
+    workflow_dispatch:
+jobs:
+    lint:
+        name: lint
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout Repository
+            uses: actions/checkout@v4
+            with:
+                fetch-depth: 0
+
+          - name: Datapack Linter
+            uses: ChenCMD/datapack-linter@v2
+            with:
+                muteSuccessResult: true
